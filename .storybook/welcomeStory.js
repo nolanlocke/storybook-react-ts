@@ -10,7 +10,7 @@ storiesOf("Welcome", module).addWithJSX(
 
     ### Notes
 
-    Hello world!:
+    Hello world!
 
     ### Usage
     ~~~js

@@ -12,16 +12,31 @@ export interface Props {
    **/
   disabled?: boolean;
 }
-const noop = () => {}; // tslint:disable-line
-export const Button = (props: Props) => {
-  const { label, onClick, disabled = false } = props;
-  const disabledclass = disabled ? 'Button_disabled' : '';
-  return (
-    <div
-      className={`Button ${disabledclass}`}
-      onClick={!disabled ? onClick : noop}
-    >
-      <span>{label}</span>
-    </div>
-  );
-};
+const noop = () => {};
+
+export class Button extends React.Component<Props> {
+  disabledClass: string;
+
+  constructor(props: Props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  render() {
+
+    this.disabledClass = this.props.disabled ? 'Button_disabled' : '';
+
+    return (
+      <div
+        className={`Button ${this.disabledClass}`}
+        onClick={!this.props.disabled ? this.onClick : noop}
+      >
+        <span>{this.props.label}</span>
+      </div>
+    );
+  }
+
+  onClick() {
+    this.props.onClick();
+  }
+}

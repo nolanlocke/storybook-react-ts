@@ -1,30 +1,40 @@
 import * as React from "react";
 
-import { storiesOf } from "@storybook/react";
 import { Button } from "./Button";
-import { wInfo } from "../utils";
 import { text, boolean } from "@storybook/addon-knobs/react";
+import { Story } from "../story";
+import buttonMetadata from './README';
 
-(storiesOf("Components/Button", module) as any).addWithJSX(
-  "basic Button",
-  wInfo(`
 
-  ### Notes
+let data = {
+  clickCount: 0,
+  disabled: false,
+  onClick: () => console.log(`button clicked ${data.clickCount++} times`),
+  label: 'Click Me'
+};
 
-  This is a button
+// export class ButtonStory extends React.Component {
+//   constructor(props: {}) {
+//     super(props);
+//   }
 
-  ### Usage
-  ~~~js
-  <Button
-    label={'Enroll'}
-    disabled={false}
-    onClick={() => alert('hello there')}
-  />
-  ~~~`)(() => (
-    <Button
-      label={text("label", "Enroll")}
-      disabled={boolean("disabled", false)}
-      onClick={() => alert("hello there")}
-    />
-  ))
-);
+//   render() {
+
+//     return <div>
+//       <Button
+//         label={text("label", 'Click Me')}
+//         disabled={boolean("disabled", false)}
+//         onClick={() => data.onClick()}
+//       />
+//     </div>;
+//   }
+// }
+
+new Story("Components/Button", 'basic button', buttonMetadata.md, () => <div>
+<Button
+  label={text("label", 'Click Me')}
+  disabled={boolean("disabled", false)}
+  onClick={() => data.onClick()}
+/>
+</div>);
+

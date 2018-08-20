@@ -2,6 +2,8 @@ import { configure } from "@storybook/react";
 import { setAddon, addDecorator } from "@storybook/react";
 import JSXAddon from "storybook-addon-jsx";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
+import '@storybook/addon-console';
+
 addDecorator(withKnobs);
 setAddon(JSXAddon);
 
