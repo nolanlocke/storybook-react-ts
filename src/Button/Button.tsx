@@ -27,12 +27,12 @@ export class Button extends React.Component<Props> {
     this.disabledClass = this.props.disabled ? 'Button_disabled' : '';
 
     return (
-      <div
+      <button
         className={`Button ${this.disabledClass}`}
         onClick={!this.props.disabled ? this.onClick : noop}
       >
         <span>{this.props.label}</span>
-      </div>
+      </button>
     );
   }
 

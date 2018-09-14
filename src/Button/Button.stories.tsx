@@ -13,28 +13,12 @@ let data = {
   label: 'Click Me'
 };
 
-// export class ButtonStory extends React.Component {
-//   constructor(props: {}) {
-//     super(props);
-//   }
-
-//   render() {
-
-//     return <div>
-//       <Button
-//         label={text("label", 'Click Me')}
-//         disabled={boolean("disabled", false)}
-//         onClick={() => data.onClick()}
-//       />
-//     </div>;
-//   }
-// }
-
-new Story("Components/Button", 'basic button', buttonMetadata.md, () => <div>
-<Button
-  label={text("label", 'Click Me')}
-  disabled={boolean("disabled", false)}
-  onClick={() => data.onClick()}
-/>
-</div>);
+new Story("Components/Button", 'basic button', buttonMetadata.md, () =>
+  <div>
+    <Button
+      label={text("label", 'Click Me')}
+      disabled={boolean("disabled", false)}
+      onClick={() => data.onClick()}
+    />
+  </div>);
 
